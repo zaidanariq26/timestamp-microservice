@@ -24,25 +24,6 @@ app.get('/api/hello', function (req, res) {
 	res.json({ greeting: 'hello API' });
 });
 
-// app.get('/api/:date?', (req, res) => {
-// 	const date = req.params.date;
-// 	const regex = /^\d+$/;
-// 	const formatCheck = moment(date, true).isValid();
-
-// 	if (date == undefined) {
-// 		res.json({
-// 			unix: new Date().getTime(),
-// 			utc: new Date().toUTCString(),
-// 		});
-// 	} else if (!formatCheck && !regex.test(date)) {
-// 		res.json({ error: 'Invalid Date' });
-// 	}
-
-// 	const check = (params) => (/-/.test(params) ? params : parseInt(params, 10));
-// 	const unix = new Date(check(date)).getTime();
-// 	const utc = new Date(check(date)).toUTCString();
-// 	res.json({ unix, utc });
-// });
 app.get('/api/:date?', (req, res) => {
 	const dateParams = req.params.date;
 	const parseDate = Date.parse(dateParams);
